@@ -16,7 +16,7 @@ def main():
     except IOError:
         print('There was an error opening the file!')
         return
-    
+
     lines = input_file.readlines()
     test_cases = []
 
@@ -29,9 +29,6 @@ def main():
 def get_output_string(test_cases):
     output_string = ""
     max_k = find_max_string_fitting(max(test_cases))
-    print max_k
-    #print get_nth_zero_one_string(30)
-    sys.exit(0)
     kth_zero_one_string = get_nth_zero_one_string(max_k)
 
     for i in range(len(test_cases)):
@@ -50,7 +47,7 @@ def find_max_string_fitting(max_k):
         if chars_that_can_fit >= max_k:
             return i
         i += 1
-        
+
 
 def switch(string):
     switch_string = ""
@@ -59,7 +56,7 @@ def switch(string):
             switch_string += "1"
         else:
             switch_string += "0"
-    
+
     return switch_string
 
 def get_nth_zero_one_string(n):
@@ -70,12 +67,12 @@ def get_nth_zero_one_string(n):
 
     if n == 1:
         return zero_one_string
-    
+
     for i in range(1,n):
         new_string = previous_string + "0" + switch(previous_string[::-1])
         zero_one_string = new_string
         previous_string = zero_one_string
-    
+
     return zero_one_string
 
 
